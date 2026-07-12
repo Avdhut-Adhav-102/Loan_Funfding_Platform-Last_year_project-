@@ -1,0 +1,411 @@
+/* --- Base Styles --- */
+:root {
+    --bs-primary: #4A69BB; /* A professional blue */
+    --bs-success: #2ecc71; /* A vibrant green for positive actions */
+    --bs-warning: #f1c40f; /* A bright yellow/orange for attention */
+    --bs-dark-blue: #2c3e50; /* Deep, professional dark blue for backgrounds/text */
+    --bs-gray-dark: #6c757d; /* Standard dark gray */
+    --bs-light-gray: #f8f9fa; /* Light gray for subtle backgrounds */
+    --bs-light-blue: #E0E7FF; /* Very light blue for subtle gradients */
+    --bs-light-green: #E6FCEF; /* Very light green for subtle gradients */
+    --bs-light-orange: #FFF8E6; /* Very light orange for subtle gradients */
+
+    --font-inter: 'Inter', sans-serif;
+    --font-nunito: 'Nunito Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-inter);
+    color: var(--bs-dark-blue);
+    background-color: var(--bs-light-gray);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-nunito);
+    color: var(--bs-dark-blue);
+}
+
+.text-gradient-primary {
+    background: linear-gradient(90deg, #4A69BB, #748CEF); /* Blue gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback for browsers not supporting -webkit-text-fill-color */
+}
+
+.text-gradient-success {
+    background: linear-gradient(90deg, #2ecc71, #55efc4); /* Green gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4A69BB 0%, #748CEF 100%);
+}
+
+.bg-gradient-light-blue {
+    background: linear-gradient(135deg, #E0E7FF 0%, #CCD6FF 100%);
+}
+
+.bg-gradient-light-green {
+    background: linear-gradient(135deg, #E6FCEF 0%, #B8EECB 100%);
+}
+
+.bg-gradient-light-orange {
+    background: linear-gradient(135deg, #FFF8E6 0%, #FFEBBE 100%);
+}
+
+.bg-light-gradient {
+    background: linear-gradient(180deg, var(--bs-light-gray) 0%, #E6EAF2 100%);
+}
+
+.bg-light-gradient-alt {
+    background: linear-gradient(180deg, #E6EAF2 0%, var(--bs-light-gray) 100%);
+}
+
+
+/* --- Navbar --- */
+.navbar {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand img {
+    max-height: 40px; /* Adjust logo height */
+    width: auto;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.05rem;
+    color: var(--bs-dark-blue) !important;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--bs-primary) !important;
+}
+
+.navbar-nav .btn-gradient-primary {
+    /* Existing btn-gradient-primary styles for the Contact Us button */
+    padding: 0.6rem 1.8rem; /* Adjusted padding */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    background: linear-gradient(90deg, #4A69BB, #748CEF);
+}
+.navbar-nav .btn-gradient-primary:hover {
+    box-shadow: 0 8px 15px rgba(var(--bs-primary-rgb), 0.4) !important;
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 90vh; /* Make hero section taller */
+    padding-top: 120px; /* Space for fixed navbar */
+    padding-bottom: 60px;
+    position: relative;
+    overflow: hidden; /* For floating element */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: url('https://www.transparenttextures.com/patterns/grid-paper.png') repeat; /* Subtle grid background */
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 3.8rem; /* Larger hero title */
+    line-height: 1.2;
+    font-weight: 800; /* Bolder */
+}
+
+.hero-section p.lead {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+}
+
+.hero-section .btn-lg {
+    font-size: 1.15rem;
+    padding: 0.9rem 2.8rem;
+    border: none;
+}
+
+.hero-section .btn-gradient-primary {
+    background: linear-gradient(45deg, #4A69BB, #748CEF);
+    box-shadow: 0 10px 25px rgba(var(--bs-primary-rgb), 0.3);
+    transition: all 0.3s ease;
+}
+.hero-section .btn-gradient-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(var(--bs-primary-rgb), 0.4);
+}
+
+.hero-section .btn-outline-dark {
+    border-color: var(--bs-dark-blue);
+    color: var(--bs-dark-blue);
+    transition: all 0.3s ease;
+}
+.hero-section .btn-outline-dark:hover {
+    background-color: var(--bs-dark-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--bs-dark-blue-rgb), 0.2);
+}
+
+/* Floating element animation for hero image */
+.floating-element {
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- Features & Benefits Section --- */
+.feature-card {
+    background-color: white;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Lighter shadow */
+}
+.feature-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15); /* More pronounced shadow on hover */
+    border-color: var(--bs-primary); /* Highlight border on hover */
+}
+
+.feature-card .icon-box {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature-card .icon-box i {
+    font-size: 2.2rem;
+}
+
+/* --- How It Works Section --- */
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 17px; /* Adjust timeline line position */
+    width: 2px;
+    background-color: var(--bs-light-blue); /* Light blue line */
+    border-radius: 1px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 45px; /* Space for icon */
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-icon i {
+    font-size: 1rem;
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 1.2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--bs-primary); /* Left border as accent */
+}
+.timeline-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Call to Action Section --- */
+.call-to-action {
+    background: linear-gradient(90deg, #4A69BB 0%, #6F8BEF 100%); /* Stronger gradient */
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.call-to-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/connected-dots.png') repeat; /* Dotted overlay */
+    opacity: 0.15;
+    z-index: 0;
+}
+.call-to-action .container {
+    position: relative;
+    z-index: 1;
+}
+
+.call-to-action h2 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 800;
+}
+.call-to-action p.lead {
+    color: rgba(255,255,255,0.85);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.call-to-action .btn-light {
+    color: var(--bs-primary);
+    transition: all 0.3s ease;
+}
+.call-to-action .btn-light:hover {
+    background-color: var(--bs-dark-blue);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.call-to-action .btn-outline-light {
+    border-color: rgba(255,255,255,0.7);
+    color: white;
+    transition: all 0.3s ease;
+}
+.call-to-action .btn-outline-light:hover {
+    background-color: white;
+    color: var(--bs-primary);
+    transform: translateY(-3px);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--bs-dark-blue);
+    color: rgba(255,255,255,0.6);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.footer h5 {
+    color: white;
+    font-weight: bold;
+    font-family: var(--font-nunito);
+}
+
+.footer .list-unstyled a {
+    color: rgba(255,255,255,0.6);
+    transition: color 0.3s ease;
+}
+.footer .list-unstyled a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer .social-icons a {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer .social-icons a:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Custom glow effect for logo or blockchain-related elements */
+.blockchain-glow {
+    text-shadow: 0 0 5px rgba(74, 105, 187, 0.5), 0 0 10px rgba(74, 105, 187, 0.3);
+}
+
+/* Text shadow for hero heading for more pop */
+.text-shadow-bright {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* General shadow on hover */
+.shadow-hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+}
+.shadow-hover:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-link {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .navbar-nav .btn-gradient-primary {
+        margin-left: 0 !important;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    .hero-section {
+        min-height: auto;
+        padding-top: 100px;
+        text-align: center;
+    }
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+    .hero-section p.lead {
+        font-size: 1.1rem;
+    }
+    .floating-element {
+        display: none !important; /* Hide image on small screens for better readability */
+    }
+    .timeline::before {
+        left: 17px;
+    }
+    .timeline-item {
+        padding-left: 45px;
+    }
+    .footer .text-md-start,
+    .footer .text-md-end {
+        text-align: center !important;
+    }
+}
