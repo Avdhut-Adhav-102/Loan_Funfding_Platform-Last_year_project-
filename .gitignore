@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Maven / Java Build
+target/
+*.class
+*.jar
+*.war
+
+# Uploaded Files / Runtime Storage
+educhain-backend/uploads/*
+!educhain-backend/uploads/.gitkeep
+
+# Production / Build outputs
+dist/
+build/
+
+# IDE / Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+*.bak
+*.log
+
+# Environment & OS files
+.DS_Store
+.env
+.env.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
